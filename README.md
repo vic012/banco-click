@@ -9,9 +9,10 @@ Contém os scripts e arquivos voltados ao Front-End do banco
 Contém os scripts e arquivos voltados ao Back-End do banco
 
 ## Objetivo
-_Possibilitar um ambiente de aprendizado e comunicação em equipe_
-_Colocar em prática um aplicativo (CRUD)_
-Possíveis funções no projeto como todo
+1) _Possibilitar um ambiente de aprendizado e comunicação em equipe_
+3) _Colocar em prática um aplicativo (CRUD)_
+
+## Possíveis funções no projeto como todo:
 1) Possibilitar ao usuário criar uma ou mais contas no banco;
 2) Realizar nas contas cadastradas transações financeiras como: Depósito, Saque, PIX e TED's;
 3) Consultar o Extrato bancário;
