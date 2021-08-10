@@ -20,6 +20,13 @@
       "senha": "helena123",
       "nome": "Helena Nascimento",
       "email": "helena@teste.com.br"
-    }    
+    },
+    {
+      "nome": "felipe",
+      "email": "abc@abc",
+      "usuario": "fel",
+      "senha": "123",
+      "id": 4
+    }
   ]
 }
