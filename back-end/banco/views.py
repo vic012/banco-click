@@ -10,7 +10,7 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 	serializer_class = UsuarioSerializer
 	lookup_field = "id"
 
-#Essa classe verifica se o usuario já existe no banco de dados
+#Essa classe verifica se o usuario já existe no banco de dados do projeto
 def UsuarioExiste(request, usuario):
 	#Faz a consulta no banco para verificar o usuario
 	if (len(Usuario.objects.filter(username=usuario)) > 0):
