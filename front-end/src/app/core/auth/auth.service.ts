@@ -9,9 +9,9 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  authenticate(usuario: string, senha: string) {
+  authenticate(username: string, password: string) {
     return this.httpClient
-      .post(`${environment.apiUrl}/user/login`, { usuario , senha });
+      .post(`${environment.apiUrl}/token/`, { username , password });
   }
 
 }

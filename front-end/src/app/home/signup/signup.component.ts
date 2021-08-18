@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
 
     signUpForm!: FormGroup;
 
-    @ViewChild('usuarioInput') usuarioInput!: ElementRef<HTMLInputElement>;
+    @ViewChild('usernameInput') usernameInput!: ElementRef<HTMLInputElement>;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
 
     ngOnInit(): void {
         this.signUpForm = this.formBuilder.group({
-            nome: [
+            name: [
                 '',
                 [Validators.required, Validators.minLength(3)]
             ],
@@ -32,11 +32,11 @@ export class SignupComponent implements OnInit {
                 '',
                 [Validators.required, Validators.email, Validators.minLength(3)]
             ],
-            usuario: [
+            username: [
                 '',
                 [Validators.required, Validators.minLength(3)]
             ],
-            senha: [
+            password: [
                 '',
                 [Validators.required, Validators.minLength(3)]
             ]
@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit {
 
         const signupUser = this.signUpForm.getRawValue() as Signup;
 
-        signupUser.usuario = signupUser.usuario.toLowerCase().trim();
+        signupUser.username = signupUser.username.toLowerCase().trim();
 
         this.signupService
             .createUser(signupUser)
@@ -78,7 +78,7 @@ export class SignupComponent implements OnInit {
             return `Tamanho mínimo ${this.signUpForm.get(field)?.errors?.minlength.requiredLength}`;
         }
 
-        if (this.signUpForm.get(field)?.hasError('usuarioTaken')) {
+        if (this.signUpForm.get(field)?.hasError('usernameTaken')) {
             return 'Usuário já existente, por favor escolha outro';
         }
 
