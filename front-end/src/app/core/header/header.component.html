@@ -1,5 +1,8 @@
 <mat-toolbar color="primary" fxLayoutAlign="space-between center">
-    <span></span>
+    <button mat-icon-button (click)="button()" *ngIf="userAuth; else leftArea">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <ng-template #leftArea><span></span></ng-template>
     <span>Banco Click</span>
     <span></span>
 </mat-toolbar>

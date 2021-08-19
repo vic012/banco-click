@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UserAuth } from './../user-auth/user-auth';
+import { UserAuthService } from './../user-auth/user-auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  userAuth!: UserAuth;
+
+  constructor(private userAuthService: UserAuthService) {
+  }
 
   ngOnInit(): void {
+    this.userAuthService.getUserAuth()
+      .subscribe(userAuth => {
+        if (userAuth) {
+          this.userAuth = userAuth;
+        }
+      });
+  }
+
+  button(): void {
+
   }
 
 }
