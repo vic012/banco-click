@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { UserAuth } from './../user-auth/user-auth';
 import { UserAuthService } from './../user-auth/user-auth.service';
 
@@ -10,22 +10,23 @@ import { UserAuthService } from './../user-auth/user-auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  userAuth!: UserAuth;
+  userAuth!: UserAuth | null;
 
-  constructor(private userAuthService: UserAuthService) {
+  constructor(
+    private userAuthService: UserAuthService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
     this.userAuthService.getUserAuth()
       .subscribe(userAuth => {
-        if (userAuth) {
-          this.userAuth = userAuth;
-        }
+        this.userAuth = userAuth;
       });
   }
 
-  button(): void {
-
+  logout(): void {
+    this.userAuthService.logout();
+    this.router.navigate(['']);
   }
 
 }

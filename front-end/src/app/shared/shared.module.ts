@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        MatMenuModule
     ],
     exports: [
         FlexLayoutModule,
@@ -24,7 +26,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        MatMenuModule
     ]
 })
-export class SharedModule {}
+export class SharedModule { }
