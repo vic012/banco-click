@@ -33,9 +33,11 @@ export class UserAuthService {
         const token = this.tokenService.getToken();
         if (token) {
             const userAuth = jwt_decode(token) as UserAuth;
-            this.userSubject.next(userAuth);
             this.userService.get(userAuth.user_id)
-                .subscribe(user => userAuth.user = user);
+                .subscribe(user => {
+                    userAuth.user = user;
+                    this.userSubject.next(userAuth);
+                });
         }
     }
 
