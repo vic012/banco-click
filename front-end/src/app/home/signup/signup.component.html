@@ -28,6 +28,14 @@
                 <mat-hint align="end">{{passwordInput.value?.length || 0}}/20</mat-hint>
             </mat-form-field>
 
+            <mat-form-field>
+                <input matInput formControlName="passwordConfirmation" #passwordConfirmationInput type="password" 
+                    placeholder="Confirmação de Senha" maxlength="20" [errorStateMatcher]="validParentMatcher">
+                <mat-error *ngIf="signUpForm.errors?.passwordEqual">A senha está diferente</mat-error>
+                <mat-error *ngIf="signUpForm.get('passwordConfirmation')?.invalid">{{getErrorMessage('passwordConfirmation')}}</mat-error>
+                <mat-hint align="end">{{passwordConfirmationInput.value?.length || 0}}/20</mat-hint>
+            </mat-form-field>
+
             <button [disabled]="signUpForm.invalid || signUpForm.pending" mat-raised-button type="submit" color="primary">Cadastre</button>
         </form>
         <div class="login-form" fxLayoutAlign="stretch" fxLayout="column">

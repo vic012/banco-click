@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       .authenticate(usuario, senha)
       .subscribe(
         () => {
-          this.router.navigate(['users', usuario]);
+          this.router.navigate(['main']);
         },
         (error) => {
           this.loginForm.reset();

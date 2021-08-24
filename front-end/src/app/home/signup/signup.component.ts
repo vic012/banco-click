@@ -1,7 +1,9 @@
-import { Signup } from './signup.model';
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { ValidParentMatcher } from "./custom-validators";
+import { PasswordEqual } from './password-equal.validator';
+import { Signup } from './signup.model';
 import { SignupService } from "./signup.service";
 
 
@@ -13,6 +15,8 @@ import { SignupService } from "./signup.service";
 export class SignupComponent implements OnInit {
 
     signUpForm!: FormGroup;
+
+    validParentMatcher = new ValidParentMatcher();
 
     @ViewChild('usernameInput') usernameInput!: ElementRef<HTMLInputElement>;
 
@@ -39,7 +43,13 @@ export class SignupComponent implements OnInit {
             password: [
                 '',
                 [Validators.required, Validators.minLength(3)]
+            ],
+            passwordConfirmation: [
+                '',
+                [Validators.required]                
             ]
+        }, {
+            validators: [PasswordEqual.validate]
         });
 
     }

@@ -1,5 +1,21 @@
 <mat-toolbar color="primary" fxLayoutAlign="space-between center">
-    <span></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="userAuth; else leftArea">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item disabled>
+          <mat-icon>receipt_long</mat-icon>
+          <span>Transferências</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>account_balance</mat-icon>
+          <span>Extrato</span>
+        </button>
+      </mat-menu>
+    <ng-template #leftArea><span></span></ng-template>
     <span>Banco Click</span>
-    <span></span>
+    <button mat-icon-button (click)="logout()" *ngIf="userAuth; else rightArea">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+    <ng-template #rightArea><span></span></ng-template>
 </mat-toolbar>
